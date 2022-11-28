@@ -1,0 +1,15 @@
+<launch>
+
+  <arg name="type" default="cpp"/>
+
+  <group if="$(eval type == 'cpp')">
+    <node name="listener_node" pkg="beginner" type="beginner_sub_node" output="screen"/>
+    <node name="talker_node" pkg="beginner" type="beginner_pub_node" output="screen"/>
+  </group>
+  
+  <group if="$(eval type == 'py')">
+    <node name="listener_node" pkg="beginner" type="subscriber.py" output="screen"/>
+    <node name="talker_node" pkg="beginner" type="publisher.py" output="screen"/>
+  </group>
+
+</launch>
